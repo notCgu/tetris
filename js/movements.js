@@ -2,7 +2,7 @@ function checkWallKicks(initialRotation, finalRotation){
   var offset1;
   var offset2;
   if(currentPiece.type !== 4){
-    for(var i = 0; i < 5; i ++){
+    for(let i = 0; i < 5; i ++){
       offset1 = findOffsetData(initialRotation, i);
       offset2 = findOffsetData(finalRotation, i);
       if(isNotObstructed(offset1[0]-offset2[0],offset1[1]-offset2[1],finalRotation)){
@@ -151,8 +151,8 @@ function findOffsetData(rotation, offsetNumber){
 
 function isNotObstructed(xOffset, yOffset, rotation){
   var boundingBox = findBoundingBox(currentPiece.type, rotation);
-  for(var i = 0; i < boundingBox.length; i ++){
-    for(var j = 0; j < boundingBox[i].length; j ++){
+  for(let i = 0; i < boundingBox.length; i ++){
+    for(let j = 0; j < boundingBox[i].length; j ++){
       if(boundingBox[i][j]){
         if(currentPiece.x+xOffset+j < 0 || currentPiece.x+xOffset+j >= 10){
           return false;
@@ -171,17 +171,17 @@ function isNotObstructed(xOffset, yOffset, rotation){
 
 function clearLines(){
   var lineClears = 0;
-  for(var i = 0; i < 20; i ++){
+  for(let i = 0; i < 20; i ++){
     if(gameBoard[i].indexOf(0) == -1){
       lineClears ++;
       gameBoard.splice(i,1);
       gameBoard.unshift([0,0,0,0,0,0,0,0,0,0]);
     }
   }
-  for(var k = 0; k < 20; k ++){
-    for(var l = 0; l < 10; l ++){
-      setColor(gameBoard[k][l]);
-      rect(l*20, k*20, 20, 20);
+  for(let i = 0; i < 20; i ++){
+    for(let j = 0; j < 10; j ++){
+      setColor(gameBoard[i][j]);
+      rect(j*20, i*20, 20, 20);
     }
   }
   switch(lineClears){
