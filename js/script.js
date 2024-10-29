@@ -9,8 +9,8 @@ to implement:
 - DAS
 */
 var level = 0;
-var dropSpeedList = [48,43,38,33,28,23,18,13,8,6,5,5,5,4,4,4,3,3,3,2,2,2,2,2,2,2,2,2,2];
-var dropSpeed = dropSpeedList[level];
+const DROPSPEEDS = [48,43,38,33,28,23,18,13,8,6,5,5,5,4,4,4,3,3,3,2,2,2,2,2,2,2,2,2,2];
+var dropSpeed = DROPSPEEDS[level];
 var framesBetweenDrops = 0;
 var gameBoard = [];
 var gameBoardDivs = [];
