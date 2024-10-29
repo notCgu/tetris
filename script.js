@@ -26,6 +26,7 @@ var totalLinesCleared = 0;
 var combo = 0;
 var previousDifficultClear = false;
 var killScreenOn = false;
+const COLORS = ["#7F7F7F", "#00FFFF", "#0000FF", "#FF7F00", "#FFFF00", "#00FF00", "#800080", "#FF0000"];
 var currentPiece = {
   previousX: 0,
   previousY: 0,
@@ -406,38 +407,8 @@ function setUpGame(){
       body.appendChild(gameBoardDivs[i][j]);
     }
   }
-  strokeWeight(1);
-  stroke(rgb(0,0,0));
   erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.boundingBox);
   drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
-}
-
-function setColor(type){
-  switch(type){
-    case 0:
-      fill("#7F7F7F"); // empty
-      break;
-    case 1:
-      fill("#00FFFF"); // i piece
-      break;
-    case 2:
-      fill("#0000FF"); // j piece
-      break;
-    case 3:
-      fill("#FF7F00"); // l piece
-      break;
-    case 4:
-      fill("#FFFF00"); // o piece
-      break;
-    case 5:
-      fill("#00FF00"); // s piece
-      break;
-    case 6:
-      fill("#800080"); // t piece
-      break;
-    case 7:
-      fill("#FF0000"); // z piece
-  }
 }
 
 function erasePreviousBlock(x, y, boundingBox){
