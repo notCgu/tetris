@@ -13,6 +13,7 @@ var dropSpeedList = [48,43,38,33,28,23,18,13,8,6,5,5,5,4,4,4,3,3,3,2,2,2,2,2,2,2
 var dropSpeed = dropSpeedList[level];
 var framesBetweenDrops = 0;
 var gameBoard = [];
+var gameBoardDivs = [];
 var score = 0;
 var pieceBag = [];
 var pieceQueue = [];
@@ -389,18 +390,20 @@ function drawPieceQueueBlock(x, y, type){
 }
 
 function setUpGame(){
-  strokeWeight(1);
-  stroke(rgb(0,0,0));
-  fill("#7F7F7F");
+  const body = document.getElementById("body");
   for(var k = 0; k < 5; k ++){
     pieceQueue.push(generatePiece());
   }
   createNewPiece();
   for(var i = 0; i < 20; i ++){
-    gameBoard[i] = [];
+    gameBoard.push([]);
+    gameBoardDivs.push([]);
     for(var j = 0; j < 10; j ++){
-      gameBoard[i][j] = 0;
-      rect(j*20, i*20, 20, 20);
+      gameBoard[i].push(0);
+      gameBoardDivs[i].push(document.createElement("div"));
+      gameBoardDivs[i][j].style.marginTop = (i*20)+"px";
+      gameBoardDivs[i][j].style.marginLeft = (j*20)+"px";
+      body.appendChild(gameBoardDivs[i][j]);
     }
   }
   strokeWeight(1);
