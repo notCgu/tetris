@@ -17,6 +17,7 @@ var gameBoardDivs = [];
 var score = 0;
 var pieceBag = [];
 var pieceQueue = [];
+var pieceQueueDivs = [];
 var canHoldPiece = true;
 var heldPiece = 0;
 var notSwitchedHeldPiece = true;
