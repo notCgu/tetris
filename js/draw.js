@@ -13,6 +13,7 @@ function drawPieceQueue(){
   }
   text("next:", 300, 130);
   stroke("black");
+  
   for(var i = 0; i < pieceQueue.length; i ++){
     drawPieceQueueBlock(300, 160+i*50, pieceQueue[i]);
   }
