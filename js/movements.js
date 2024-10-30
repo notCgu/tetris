@@ -180,8 +180,7 @@ function clearLines(){
   }
   for(let i = 0; i < 20; i ++){
     for(let j = 0; j < 10; j ++){
-      setColor(gameBoard[i][j]);
-      rect(j*20, i*20, 20, 20);
+      gameBoardDivs[i][j].style.backgroundColor = COLORS[gameBoard[i][j]];
     }
   }
   switch(lineClears){
