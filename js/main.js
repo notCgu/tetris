@@ -118,28 +118,39 @@ function animate(){
     } else {
       framesBetweenDrops ++;
     }
-    if(keyWentDown("left") && canMoveLeft()){
-      currentPiece.previousX = currentPiece.x;
-      currentPiece.previousY = currentPiece.y;
-      currentPiece.x --;
-      drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
-      drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
-    }
-    if(keyWentDown("right") && canMoveRight()){
-      currentPiece.previousX = currentPiece.x;
-      currentPiece.previousY = currentPiece.y;
-      currentPiece.x ++;
-      drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
-      drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
-    }
-    if(keyWentDown("space")){
+  }
+}
+
+document.onkeydown = function(){
+  key = window.event;
+  if(gameEnded){return;}
+  switch(key.keyCode){
+    case "ArrowLeft":
+      if(isNotObstructed(-1,0,currentPiece.type)){
+        currentPiece.previousX = currentPiece.x;
+        currentPiece.previousY = currentPiece.y;
+        currentPiece.x --;
+        drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
+        drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
+      }
+      break;
+    case "ArrowRight":
+      if(isNotObstructed(1,0,currentPiece.type)){
+        currentPiece.previousX = currentPiece.x;
+        currentPiece.previousY = currentPiece.y;
+        currentPiece.x ++;
+        drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
+        drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
+      }
+      break;
+    case "Space":
       notSwitchedHeldPiece = true;
       currentPiece.previousX = currentPiece.x;
       currentPiece.previousY = currentPiece.y;
       drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
-      while(canMoveDown()){
+      while(isNotObstructed(0,1,currentPiece.type)){
         currentPiece.y ++;
-        score += 2;
+        score += 2*level;
       }
       drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
       for(var k = 0; k < currentPiece.boundingBox.length; k ++){
@@ -152,8 +163,8 @@ function animate(){
       clearLines();
       createNewPiece();
       pieceLockTimer = 0;
-    }
-    if(keyWentDown("up")){
+      break;
+    case "ArrowUp":
       if(isNotObstructed(0,0,(currentPiece.rotation+1)%4)){
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = (currentPiece.rotation+1)%4;
@@ -163,8 +174,8 @@ function animate(){
       } else {
         checkWallKicks(currentPiece.rotation, (currentPiece.rotation+1)%4);
       }
-    }
-    if(keyWentDown("z")){
+      break;
+    case "Key Z":
       if(isNotObstructed(0,0,(currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1)){
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = (currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1;
@@ -174,37 +185,39 @@ function animate(){
       } else {
         checkWallKicks(currentPiece.rotation, (currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1);
       }
-    }
-    if(keyWentDown("c") && canHoldPiece && notSwitchedHeldPiece){
-      notSwitchedHeldPiece = false;
-      drawBlock(currentPiece.x, currentPiece.y, 0, currentPiece.boundingBox);
-      if(heldPiece == 0){
-        heldPiece = currentPiece.type;
-        createNewPiece();
-      } else {
-        heldPiece += currentPiece.type;
-        currentPiece.type = heldPiece - currentPiece.type;
-        heldPiece -= currentPiece.type;
-        if(currentPiece.type == 1){
-          currentPiece.y = -2;
-          currentPiece.previousY = -2;
+      break;
+    case "Key C":
+      if(canHoldPiece && notSwitchedHeldPiece){
+        notSwitchedHeldPiece = false;
+        drawBlock(currentPiece.x, currentPiece.y, 0, currentPiece.boundingBox);
+        if(heldPiece == 0){
+          heldPiece = currentPiece.type;
+          createNewPiece();
         } else {
-          currentPiece.y = 0;
-          currentPiece.previousY = 0;
+          heldPiece += currentPiece.type;
+          currentPiece.type = heldPiece - currentPiece.type;
+          heldPiece -= currentPiece.type;
+          if(currentPiece.type == 1){
+            currentPiece.y = -2;
+            currentPiece.previousY = -2;
+          } else {
+            currentPiece.y = 0;
+            currentPiece.previousY = 0;
+          }
+          if(currentPiece.type == 1){
+            currentPiece.previousX = 2;
+            currentPiece.x = 2;
+          } else {
+            currentPiece.previousX = 3;
+            currentPiece.x = 3;
+          }
+          currentPiece.rotation = 0;
+          currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][0];
+          currentPiece.previousBoundingBox = currentPiece.boundingBox;
+          drawPieceQueue();
         }
-        if(currentPiece.type == 1){
-          currentPiece.previousX = 2;
-          currentPiece.x = 2;
-        } else {
-          currentPiece.previousX = 3;
-          currentPiece.x = 3;
-        }
-        currentPiece.rotation = 0;
-        currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][0];
-        currentPiece.previousBoundingBox = currentPiece.boundingBox;
-        drawPieceQueue();
       }
-    }
+      break;
   }
 }
 
