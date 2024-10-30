@@ -219,7 +219,7 @@ function clearLines(){
     totalLinesCleared -= 10;
     level ++;
     if(level < 29){
-      dropSpeed = dropSpeedList[level];
+      dropSpeed = DROPSPEEDS[level];
     } else {
       if(killScreenOn){
         dropSpeed = 1;
