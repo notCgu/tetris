@@ -67,23 +67,11 @@ function drawPieceQueueBlock(x, y, type){
   }
 }
 
-function erasePreviousBlock(x, y, boundingBox){
-  fill("#7F7F7F");
-  for(var i = 0; i < boundingBox.length; i ++){
-    for(var j = 0; j < boundingBox[i].length; j ++){
-      if(boundingBox[i][j]){
-        rect((x+j)*20, (y+i)*20, 20, 20);
-      }
-    }
-  }
-}
-
 function drawBlock(x, y, type, boundingBox){
-  setColor(type);
   for(var i = 0; i < boundingBox.length; i ++){
     for(var j = 0; j < boundingBox[i].length; j ++){
       if(boundingBox[i][j]){
-        rect((x+j)*20, (y+i)*20, 20, 20);
+        gameBoardDivs[y+i][x+j].style.backgroundColor = COLORS[type];
       }
     }
   }
