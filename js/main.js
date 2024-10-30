@@ -95,7 +95,7 @@ function animate(){
         currentPiece.previousX = currentPiece.x;
         currentPiece.previousY = currentPiece.y;
         currentPiece.y ++;
-        erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.boundingBox);
+        drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
         drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
         pieceLockTimer = 0;
       } else {
@@ -122,21 +122,21 @@ function animate(){
       currentPiece.previousX = currentPiece.x;
       currentPiece.previousY = currentPiece.y;
       currentPiece.x --;
-      erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.boundingBox);
+      drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
       drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
     }
     if(keyWentDown("right") && canMoveRight()){
       currentPiece.previousX = currentPiece.x;
       currentPiece.previousY = currentPiece.y;
       currentPiece.x ++;
-      erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.boundingBox);
+      drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
       drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
     }
     if(keyWentDown("space")){
       notSwitchedHeldPiece = true;
       currentPiece.previousX = currentPiece.x;
       currentPiece.previousY = currentPiece.y;
-      erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.boundingBox);
+      drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
       while(canMoveDown()){
         currentPiece.y ++;
         score += 2;
@@ -158,7 +158,7 @@ function animate(){
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = (currentPiece.rotation+1)%4;
         currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][currentPiece.rotation];
-        erasePreviousBlock(currentPiece.x, currentPiece.y, currentPiece.previousBoundingBox);
+        drawBlock(currentPiece.x, currentPiece.y, 0, currentPiece.previousBoundingBox);
         drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
       } else {
         checkWallKicks(currentPiece.rotation, (currentPiece.rotation+1)%4);
@@ -169,7 +169,7 @@ function animate(){
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = (currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1;
         currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][currentPiece.rotation];
-        erasePreviousBlock(currentPiece.x, currentPiece.y, currentPiece.previousBoundingBox);
+        drawBlock(currentPiece.x, currentPiece.y, 0, currentPiece.previousBoundingBox);
         drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
       } else {
         checkWallKicks(currentPiece.rotation, (currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1);
@@ -177,7 +177,7 @@ function animate(){
     }
     if(keyWentDown("c") && canHoldPiece && notSwitchedHeldPiece){
       notSwitchedHeldPiece = false;
-      erasePreviousBlock(currentPiece.x, currentPiece.y, currentPiece.boundingBox);
+      drawBlock(currentPiece.x, currentPiece.y, 0, currentPiece.boundingBox);
       if(heldPiece == 0){
         heldPiece = currentPiece.type;
         createNewPiece();
@@ -257,6 +257,6 @@ function setUpGame(){
       body.appendChild(gameBoardDivs[i][j]);
     }
   }
-  erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.boundingBox);
+  drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
   drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
 }
