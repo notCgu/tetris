@@ -12,7 +12,7 @@ function checkWallKicks(initialRotation, finalRotation){
         currentPiece.y += (offset1[1]-offset2[1]);
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = finalRotation;
-        currentPiece.boundingBox = findBoundingBox(currentPiece.type, currentPiece.rotation);
+        currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][currentPiece.rotation];
         erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.previousBoundingBox);
         drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
         return;
@@ -28,7 +28,7 @@ function checkWallKicks(initialRotation, finalRotation){
       currentPiece.y += (offset1[1]-offset2[1]);
       currentPiece.previousBoundingBox = currentPiece.boundingBox;
       currentPiece.rotation = finalRotation;
-      currentPiece.boundingBox = findBoundingBox(currentPiece.type, currentPiece.rotation);
+      currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][currentPiece.rotation];
       erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.previousBoundingBox);
       drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
       return;
@@ -150,7 +150,7 @@ function findOffsetData(rotation, offsetNumber){
 }
 
 function isNotObstructed(xOffset, yOffset, rotation){
-  var boundingBox = findBoundingBox(currentPiece.type, rotation);
+  var boundingBox = BOUNDINGBOXES[currentPiece.type][rotation];
   for(let i = 0; i < boundingBox.length; i ++){
     for(let j = 0; j < boundingBox[i].length; j ++){
       if(boundingBox[i][j]){
