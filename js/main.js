@@ -156,7 +156,7 @@ function animate(){
       if(isNotObstructed(0,0,(currentPiece.rotation+1)%4)){
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = (currentPiece.rotation+1)%4;
-        currentPiece.boundingBox = findBoundingBox(currentPiece.type, currentPiece.rotation);
+        currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][currentPiece.rotation];
         erasePreviousBlock(currentPiece.x, currentPiece.y, currentPiece.previousBoundingBox);
         drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
       } else {
@@ -167,7 +167,7 @@ function animate(){
       if(isNotObstructed(0,0,(currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1)){
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = (currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1;
-        currentPiece.boundingBox = findBoundingBox(currentPiece.type, currentPiece.rotation);
+        currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][currentPiece.rotation];
         erasePreviousBlock(currentPiece.x, currentPiece.y, currentPiece.previousBoundingBox);
         drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
       } else {
@@ -199,7 +199,7 @@ function animate(){
           currentPiece.x = 3;
         }
         currentPiece.rotation = 0;
-        currentPiece.boundingBox = findBoundingBox(currentPiece.type, 0);
+        currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][0];
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         drawPieceQueue();
       }
@@ -234,7 +234,7 @@ function createNewPiece(){
     currentPiece.x = 3;
   }
   currentPiece.rotation = 0;
-  currentPiece.boundingBox = findBoundingBox(currentPiece.type, 0);
+  currentPiece.boundingBox = BOUNDINGBOXES[curentPiece.type][0];
   currentPiece.previousBoundingBox = currentPiece.boundingBox;
   drawPieceQueue();
 }
