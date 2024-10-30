@@ -19,6 +19,7 @@ var pieceQueue = [];
 var pieceQueueDivs = [];
 var canHoldPiece = true;
 var heldPiece = 0;
+var heldPieceDivs = [];
 var notSwitchedHeldPiece = true;
 var gameEnded = false;
 var pieceLockTimer = 0;
