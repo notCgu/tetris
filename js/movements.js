@@ -13,7 +13,7 @@ function checkWallKicks(initialRotation, finalRotation){
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = finalRotation;
         currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][currentPiece.rotation];
-        erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.previousBoundingBox);
+        drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.previousBoundingBox);
         drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
         return;
       }
@@ -29,7 +29,7 @@ function checkWallKicks(initialRotation, finalRotation){
       currentPiece.previousBoundingBox = currentPiece.boundingBox;
       currentPiece.rotation = finalRotation;
       currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][currentPiece.rotation];
-      erasePreviousBlock(currentPiece.previousX, currentPiece.previousY, currentPiece.previousBoundingBox);
+      drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.previousBoundingBox);
       drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
       return;
     }
