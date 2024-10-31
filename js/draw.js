@@ -1,9 +1,4 @@
 function drawPieceQueue(){
-  textAlign(CENTER, CENTER);
-  fill("#A0A0A0");
-  noStroke();
-  rect(201, 40, 200, 360);
-  fill("black");
   if(canHoldPiece){
     text("held piece:", 300, 70);
     stroke("black");
@@ -13,15 +8,12 @@ function drawPieceQueue(){
   }
   text("next:", 300, 130);
   stroke("black");
-  
-  for(var i = 0; i < pieceQueue.length; i ++){
+  for(let i = pieceQueueDivs.length; i < pieceQueue.length; i ++){
     drawPieceQueueBlock(300, 160+i*50, pieceQueue[i]);
   }
-  fill("#7F7F7F");
 }
 
 function drawPieceQueueBlock(x, y, type){
-  setColor(type);
   switch(type){
     case 1:
       rect(x-40, y, 20, 20);
