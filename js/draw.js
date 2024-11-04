@@ -14,8 +14,10 @@ function drawPieceQueue(){
 }
 
 function drawPieceQueueBlock(x, y, type){
+  const head = document.getElementById("head");
   switch(type){
     case 1:
+      pieceQueueDivs.push([]);
       rect(x-40, y, 20, 20);
       rect(x-20, y, 20, 20);
       rect(x, y, 20, 20);
