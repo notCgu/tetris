@@ -81,6 +81,7 @@ function drawPieceQueueBlock(type){
   }
   for(let i = 0; i < pieceQueueDivs[pieceQueueDivs.length-1].length; i ++){
     pieceQueueDivs[pieceQueueDivs.length-1][i].style.backgroundColor = COLORS[type];
+    console.log(pieceQueueDivs[pieceQueueDivs.length-1][i]);
     head.appendChild(pieceQueueDivs[pieceQueueDivs.length-1][i]);
   }
 }
