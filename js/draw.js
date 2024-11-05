@@ -85,6 +85,86 @@ function drawPieceQueueBlock(type){
   }
 }
 
+function drawHeldPieceBlock(type){
+  const body = document.getElementById("body");
+  heldPieceDivs = [document.createElement("div"),document.createElement("div"),document.createElement("div"),document.createElement("div")];
+  switch(type){
+    case 1:
+      heldPieceDivs[0].style.marginLeft = "260px";
+      heldPieceDivs[1].style.marginLeft = "280px";
+      heldPieceDivs[2].style.marginLeft = "300px";
+      heldPieceDivs[3].style.marginLeft = "320px";
+      for(let i = 0; i < 4; i ++){
+        heldPieceDivs[i].style.marginTop = "90px";
+      }
+      break;
+    case 2:
+      heldPieceDivs[0].style.marginLeft = "270px";
+      heldPieceDivs[0].style.marginTop = "70px";
+      heldPieceDivs[1].style.marginLeft = "270px";
+      heldPieceDivs[1].style.marginTop = "90px";
+      heldPieceDivs[2].style.marginLeft = "290px";
+      heldPieceDivs[2].style.marginTop = "90px";
+      heldPieceDivs[3].style.marginLeft = "310px";
+      heldPieceDivs[3].style.marginTop = "90px";
+      break;
+    case 3:
+      heldPieceDivs[0].style.marginLeft = "270px";
+      heldPieceDivs[0].style.marginTop = "90px";
+      heldPieceDivs[1].style.marginLeft = "290px";
+      heldPieceDivs[1].style.marginTop = "90px";
+      heldPieceDivs[2].style.marginLeft = "310px";
+      heldPieceDivs[2].style.marginTop = "90px";
+      heldPieceDivs[3].style.marginLeft = "310px";
+      heldPieceDivs[3].style.marginTop = "70px";
+      break;
+    case 4:
+      heldPieceDivs[0].style.marginLeft = "280px";
+      heldPieceDivs[0].style.marginTop = "70px";
+      heldPieceDivs[1].style.marginLeft = "280px";
+      heldPieceDivs[1].style.marginTop = "90px";
+      heldPieceDivs[2].style.marginLeft = "300px";
+      heldPieceDivs[2].style.marginTop = "70px";
+      heldPieceDivs[3].style.marginLeft = "300px";
+      heldPieceDivs[3].style.marginTop = "90px";
+      break;
+    case 5:
+      heldPieceDivs[0].style.marginLeft = "270px";
+      heldPieceDivs[0].style.marginTop = "90px";
+      heldPieceDivs[1].style.marginLeft = "290px";
+      heldPieceDivs[1].style.marginTop = "90px";
+      heldPieceDivs[2].style.marginLeft = "290px";
+      heldPieceDivs[2].style.marginTop = "70px";
+      heldPieceDivs[3].style.marginLeft = "310px";
+      heldPieceDivs[3].style.marginTop = "70px";
+      break;
+    case 6:
+      heldPieceDivs[0].style.marginLeft = "270px";
+      heldPieceDivs[0].style.marginTop = "90px";
+      heldPieceDivs[1].style.marginLeft = "290px";
+      heldPieceDivs[1].style.marginTop = "90px";
+      heldPieceDivs[2].style.marginLeft = "290px";
+      heldPieceDivs[2].style.marginTop = "70px";
+      heldPieceDivs[3].style.marginLeft = "310px";
+      heldPieceDivs[3].style.marginTop = "90px";
+      break;
+    case 7:
+      heldPieceDivs[0].style.marginLeft = "270px";
+      heldPieceDivs[0].style.marginTop = "70px";
+      heldPieceDivs[1].style.marginLeft = "290px";
+      heldPieceDivs[1].style.marginTop = "70px";
+      heldPieceDivs[2].style.marginLeft = "290px";
+      heldPieceDivs[2].style.marginTop = "90px";
+      heldPieceDivs[3].style.marginLeft = "310px";
+      heldPieceDivs[3].style.marginTop = "90px";
+      break;
+  }
+  for(let i = 0; i < heldPieceDivs.length; i ++){
+    heldPieceDivs[i].style.backgroundColor = COLORS[type];
+    body.appendChild(heldPieceDivs[i]);
+  }
+}
+
 function shiftPieceQueue(){
   for(let i = 0; i < pieceQueueDivs.length; i ++){
     for(let j = 0; j < 4; j ++){
