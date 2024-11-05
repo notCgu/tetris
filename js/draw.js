@@ -92,8 +92,6 @@ function shiftPieceQueue(){
     }
   }
   if(pieceQueueDivs.length == 5){
-    console.log(pieceQueue);
-    console.log(pieceQueueDivs);
     for(let i = 0; i < 4; i ++){
       pieceQueueDivs[0][i].remove();
     }
