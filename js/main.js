@@ -27,6 +27,8 @@ var totalLinesCleared = 0;
 var combo = 0;
 var previousDifficultClear = false;
 var killScreenOn = false;
+const scoreText = document.getElementById("score_text");
+const levelText = document.getElementById("level_text");
 const COLORS = ["#7F7F7F", "#00FFFF", "#0000FF", "#FF7F00", "#FFFF00", "#00FF00", "#800080", "#FF0000"];
 const BOUNDINGBOXES = [[],[[[0,0,0,0,0],[0,0,0,0,0],[0,1,1,1,1],[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0]],[[0,0,0,0,0],[0,0,0,0,0],[1,1,1,1,0],[0,0,0,0,0],[0,0,0,0,0]],[[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,0,0,0]]],
                       [[[1,0,0],[1,1,1],[0,0,0]],[[0,1,1],[0,1,0],[0,1,0]],[[0,0,0],[1,1,1],[0,0,1]],[[0,1,0],[0,1,0],[1,1,0]]],
@@ -82,6 +84,8 @@ setUpGame();
 var loop = setInterval(animate, 16.67);
 function animate(){
   if(!gameEnded){
+    scoreText.innerHTML = "score: "+score;
+    levelText.innerHTML = "level: "+level;
     if(framesBetweenDrops >= dropSpeed){
       if(isNotObstructed(0,1,currentPiece.rotation)){
         currentPiece.previousX = currentPiece.x;
@@ -207,12 +211,10 @@ document.onkeydown = function(){
           currentPiece.rotation = 0;
           currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][0];
           currentPiece.previousBoundingBox = currentPiece.boundingBox;
-          heldPieceDivs.push(pieceQueueDivs.shift());
-          pieceQueueDivs.unshift(heldPieceDivs.shift());
           for(let i = 0; i < 4; i ++){
-            pieceQueueDivs[0][i].style.marginTop = (Number(pieceQueueDivs[0][i].style.marginTop.substring(0, pieceQueueDivs[0][i].style.marginTop.length-2))+70)+"px";
-            heldPieceDivs[0][i].style.marginTop = (Number(heldPieceDivs[0][i].style.marginTop.substring(0, heldPieceDivs[0][i].style.marginTop.length-2))-70)+"px";
+            heldPieceDivs[i].remove();
           }
+          drawHeldPieceBlock(heldPiece);
         }
       }
       break;
