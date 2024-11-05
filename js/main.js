@@ -115,6 +115,7 @@ function animate(){
 
 document.onkeydown = function(){
   key = window.event;
+  console.log(key.keyCode);
   if(gameEnded){return;}
   switch(key.keyCode){
     case "ArrowLeft":
