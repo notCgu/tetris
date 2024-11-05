@@ -255,7 +255,7 @@ function createNewPiece(){
     currentPiece.x = 3;
   }
   currentPiece.rotation = 0;
-  currentPiece.boundingBox = BOUNDINGBOXES[curentPiece.type][0];
+  currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][0];
   currentPiece.previousBoundingBox = currentPiece.boundingBox;
 }
 
