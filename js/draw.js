@@ -20,63 +20,63 @@ function drawPieceQueueBlock(type){
       break;
     case 2:
       pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginLeft = "270px";
-      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "340px";
       pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginLeft = "270px";
-      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginLeft = "290px";
-      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginLeft = "310px";
-      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "360px";
       break;
     case 3:
       pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginLeft = "270px";
-      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginLeft = "290px";
-      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginLeft = "310px";
-      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginLeft = "310px";
-      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "340px";
       break;
     case 4:
       pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginLeft = "280px";
-      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "340px";
       pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginLeft = "280px";
-      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginLeft = "300px";
-      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "340px";
       pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginLeft = "300px";
-      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "360px";
       break;
     case 5:
       pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginLeft = "270px";
-      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginLeft = "290px";
-      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginLeft = "290px";
-      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "340px";
       pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginLeft = "310px";
-      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "340px";
       break;
     case 6:
       pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginLeft = "270px";
-      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginLeft = "290px";
-      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginLeft = "290px";
-      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "340px";
       pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginLeft = "310px";
-      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "360px";
       break;
     case 7:
       pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginLeft = "270px";
-      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][0].style.marginTop = "340px";
       pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginLeft = "290px";
-      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "290px";
+      pieceQueueDivs[pieceQueueDivs.length-1][1].style.marginTop = "340px";
       pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginLeft = "290px";
-      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][2].style.marginTop = "360px";
       pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginLeft = "310px";
-      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "310px";
+      pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "360px";
       break;
   }
   for(let i = 0; i < pieceQueueDivs[pieceQueueDivs.length-1].length; i ++){
