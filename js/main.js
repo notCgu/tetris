@@ -229,7 +229,7 @@ document.onkeydown = function(){
 function generatePiece(){
   if(pieceBag.length == 0){
     for(var i = 0; i < 7; i ++){
-      pieceBag.splice(randomNumber(0,pieceBag.length),0,i+1);
+      pieceBag.splice(floor(Math.random()*(pieceBag.length+1)),0,i+1);
     }
   }
   return pieceBag.pop();
