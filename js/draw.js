@@ -79,7 +79,7 @@ function drawPieceQueueBlock(type){
       pieceQueueDivs[pieceQueueDivs.length-1][3].style.marginTop = "310px";
       break;
   }
-  for(let i = 0; i < pieceQueueDivs.length; i ++){
+  for(let i = 0; i < pieceQueueDivs[pieceQueueDivs.length-1].length; i ++){
     pieceQueueDivs[pieceQueueDivs.length-1][i].style.backgroundColor = COLORS[type];
     head.appendChild(pieceQueueDivs[pieceQueueDivs.length-1][i]);
   }
