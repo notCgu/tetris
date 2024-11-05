@@ -236,6 +236,7 @@ function generatePiece(){
 }
 
 function createNewPiece(){
+  console.log(pieceQueue.length);
   currentPiece.type = shiftPieceQueue();
   pieceQueue.push(generatePiece());
   drawPieceQueueBlock(pieceQueue[4]);
