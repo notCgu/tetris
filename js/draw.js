@@ -6,7 +6,7 @@ function drawPieceQueue(){
 }
 
 function drawPieceQueueBlock(type){
-  const head = document.getElementById("head");
+  const body = document.getElementById("body");
   pieceQueueDivs.push([document.createElement("div"),document.createElement("div"),document.createElement("div"),document.createElement("div")]);
   switch(type){
     case 1:
@@ -82,7 +82,7 @@ function drawPieceQueueBlock(type){
   for(let i = 0; i < pieceQueueDivs[pieceQueueDivs.length-1].length; i ++){
     pieceQueueDivs[pieceQueueDivs.length-1][i].style.backgroundColor = COLORS[type];
     console.log(pieceQueueDivs[pieceQueueDivs.length-1][i]);
-    head.appendChild(pieceQueueDivs[pieceQueueDivs.length-1][i]);
+    body.appendChild(pieceQueueDivs[pieceQueueDivs.length-1][i]);
   }
 }
 
