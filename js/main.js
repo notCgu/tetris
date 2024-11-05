@@ -214,7 +214,12 @@ document.onkeydown = function(){
           currentPiece.rotation = 0;
           currentPiece.boundingBox = BOUNDINGBOXES[currentPiece.type][0];
           currentPiece.previousBoundingBox = currentPiece.boundingBox;
-          drawPieceQueue();
+          heldPieceDivs.push(pieceQueueDivs.shift());
+          pieceQueueDivs.unshift(heldPieceDivs.shift());
+          for(let i = 0; i < 4; i ++){
+            pieceQueueDivs[0][i].style.marginTop = (Number(pieceQueueDivs[0][i].style.marginTop.substring(0, pieceQueueDivs[0][i].style.marginTop.length-2))+70)+"px";
+            heldPieceDivs[0][i].style.marginTop = (Number(heldPieceDivs[0][i].style.marginTop.substring(0, heldPieceDivs[0][i].style.marginTop.length-2))-70)+"px";
+          }
         }
       }
       break;
@@ -231,8 +236,9 @@ function generatePiece(){
 }
 
 function createNewPiece(){
+  currentPiece.type = shiftPieceQueue();
   pieceQueue.push(generatePiece());
-  currentPiece.type = pieceQueue.shift();
+  drawPieceQueueBlock(pieceQueue[4]);
   if(currentPiece.type == 1){
     currentPiece.y = -2;
     currentPiece.previousY = -2;
@@ -250,7 +256,6 @@ function createNewPiece(){
   currentPiece.rotation = 0;
   currentPiece.boundingBox = BOUNDINGBOXES[curentPiece.type][0];
   currentPiece.previousBoundingBox = currentPiece.boundingBox;
-  drawPieceQueue();
 }
 
 function setUpGame(){
@@ -258,6 +263,7 @@ function setUpGame(){
   for(var k = 0; k < 5; k ++){
     pieceQueue.push(generatePiece());
   }
+  drawPieceQueue();
   createNewPiece();
   for(var i = 0; i < 20; i ++){
     gameBoard.push([]);
