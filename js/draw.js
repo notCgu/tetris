@@ -81,7 +81,6 @@ function drawPieceQueueBlock(type){
   }
   for(let i = 0; i < pieceQueueDivs[pieceQueueDivs.length-1].length; i ++){
     pieceQueueDivs[pieceQueueDivs.length-1][i].style.backgroundColor = COLORS[type];
-    console.log(pieceQueueDivs[pieceQueueDivs.length-1][i]);
     body.appendChild(pieceQueueDivs[pieceQueueDivs.length-1][i]);
   }
 }
@@ -93,6 +92,8 @@ function shiftPieceQueue(){
     }
   }
   if(pieceQueueDivs.length == 5){
+    console.log(pieceQueue);
+    console.log(pieceQueueDivs);
     for(let i = 0; i < 4; i ++){
       pieceQueueDivs[0][i].remove();
     }
