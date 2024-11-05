@@ -119,7 +119,7 @@ document.onkeydown = function(){
   if(gameEnded){return;}
   switch(key.key){
     case "ArrowLeft":
-      if(isNotObstructed(-1,0,currentPiece.type)){
+      if(isNotObstructed(-1,0,currentPiece.rotation)){
         currentPiece.previousX = currentPiece.x;
         currentPiece.previousY = currentPiece.y;
         currentPiece.x --;
@@ -128,7 +128,7 @@ document.onkeydown = function(){
       }
       break;
     case "ArrowRight":
-      if(isNotObstructed(1,0,currentPiece.type)){
+      if(isNotObstructed(1,0,currentPiece.rotation)){
         currentPiece.previousX = currentPiece.x;
         currentPiece.previousY = currentPiece.y;
         currentPiece.x ++;
@@ -141,7 +141,7 @@ document.onkeydown = function(){
       currentPiece.previousX = currentPiece.x;
       currentPiece.previousY = currentPiece.y;
       drawBlock(currentPiece.previousX, currentPiece.previousY, 0, currentPiece.boundingBox);
-      while(isNotObstructed(0,1,currentPiece.type)){
+      while(isNotObstructed(0,1,currentPiece.rotation)){
         currentPiece.y ++;
         score += 2*level;
       }
