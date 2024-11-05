@@ -117,7 +117,7 @@ document.onkeydown = function(){
   key = window.event;
   console.log(key.keyCode);
   if(gameEnded){return;}
-  switch(key.keyCode){
+  switch(key.key){
     case "ArrowLeft":
       if(isNotObstructed(-1,0,currentPiece.type)){
         currentPiece.previousX = currentPiece.x;
@@ -136,7 +136,7 @@ document.onkeydown = function(){
         drawBlock(currentPiece.x, currentPiece.y, currentPiece.type, currentPiece.boundingBox);
       }
       break;
-    case "Space":
+    case " ":
       notSwitchedHeldPiece = true;
       currentPiece.previousX = currentPiece.x;
       currentPiece.previousY = currentPiece.y;
@@ -168,7 +168,7 @@ document.onkeydown = function(){
         checkWallKicks(currentPiece.rotation, (currentPiece.rotation+1)%4);
       }
       break;
-    case "Key Z":
+    case "z":
       if(isNotObstructed(0,0,(currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1)){
         currentPiece.previousBoundingBox = currentPiece.boundingBox;
         currentPiece.rotation = (currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1;
@@ -179,7 +179,7 @@ document.onkeydown = function(){
         checkWallKicks(currentPiece.rotation, (currentPiece.rotation == 0) ? 3 : currentPiece.rotation-1);
       }
       break;
-    case "Key C":
+    case "c":
       if(canHoldPiece && notSwitchedHeldPiece){
         notSwitchedHeldPiece = false;
         drawBlock(currentPiece.x, currentPiece.y, 0, currentPiece.boundingBox);
