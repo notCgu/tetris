@@ -83,7 +83,7 @@ var loop = setInterval(animate, 16.67);
 function animate(){
   if(!gameEnded){
     if(framesBetweenDrops >= dropSpeed){
-      if(canMoveDown()){
+      if(isNotObstructed(0,1,currentPiece.rotation)){
         currentPiece.previousX = currentPiece.x;
         currentPiece.previousY = currentPiece.y;
         currentPiece.y ++;
