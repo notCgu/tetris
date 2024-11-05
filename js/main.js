@@ -81,15 +81,7 @@ var currentPiece = {
 setUpGame();
 var loop = setInterval(animate, 16.67);
 function animate(){
-  fill("#A0A0A0");
-  noStroke();
-  rect(201,0,200,40);
-  textAlign(CENTER, CENTER);
-  fill("black");
-  text("score: "+score, 300, 10);
-  text("level: "+level, 300, 30);
   if(!gameEnded){
-    stroke("black");
     if(framesBetweenDrops >= dropSpeed){
       if(canMoveDown()){
         currentPiece.previousX = currentPiece.x;
