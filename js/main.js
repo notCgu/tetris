@@ -190,6 +190,7 @@ document.onkeydown = function(){
         if(heldPiece == 0){
           heldPiece = currentPiece.type;
           createNewPiece();
+          drawHeldPieceBlock(heldPiece);
         } else {
           heldPiece += currentPiece.type;
           currentPiece.type = heldPiece - currentPiece.type;
